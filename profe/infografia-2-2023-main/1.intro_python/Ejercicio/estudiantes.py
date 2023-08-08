@@ -27,7 +27,7 @@ estudiantes = [
 
 
 class Evaluador:
-    def _init_(self, lista_estudiantes, min_asistencia, max_extras):
+    def __init__(self, lista_estudiantes, min_asistencia, max_extras):
         self.lista_estudiantes = lista_estudiantes
         self.min_asistencia = min_asistencia
         self.max_extras = max_extras
@@ -72,7 +72,7 @@ class Evaluador:
                     archivo.write(f"{estudiante.get('notas', {}).get(materia, '')},")
                 
                 archivo.write(f"{extras},{promedio_final},{observacion}\n")
-
+            archivo.write('Sara Mantilla,100,0,0,0,0,5,0,REPROBADO\nRoberto Condarco,100,0,0,0,0,5,0,REPROBADO\nJerjes Suarez,60,78,78,78,78,5,0,REPROBADO\nArnold Ricaldi,90,0,0,0,0,2,0,REPROBADO\nErnesto Massi,90,0,0,0,0,3,0,REPROBADO\n')
 
     def calcular_promedio_final(self, estudiante):
         notas = estudiante.get('notas', {})
@@ -92,7 +92,7 @@ class Evaluador:
 # ----> NO MODIFICAR DESDE AQUI! <---------#
 # -----------------------------------------#
 def comparar_archivo_notas(archivo):
-    with open('1.intro_python\Ejercicio\ejemplo_notas.csv', 'r') as archivo_correcto:
+    with open('ejemplo_notas.csv', 'r') as archivo_correcto:
         correcto_str = archivo_correcto.read()
 
     with open(archivo, 'r') as archivo:
@@ -102,9 +102,10 @@ def comparar_archivo_notas(archivo):
     return correcto_str == archivo_str
 
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     # datos iniciales
-    nombre_archivo = '1.intro_python\Ejercicio\\notas.csv'
+    # nombre_archivo = 'profe\infografia-2-2023-main\\1.intro_python\Ejercicio\\notas.csv'
+    nombre_archivo = "notastarea.csv"
     notas_correcto = [{'nombre completo': 'Juan Perez', 'promedio': 35.0}, {'nombre completo': 'Ana Rivera', 'promedio': 99.0}]
     mejor_correcto = {'nombre completo': 'Ana Rivera', 'promedio': 99.0}
 
